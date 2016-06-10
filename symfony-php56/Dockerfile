@@ -1,4 +1,4 @@
-FROM xavren/docker-nginx-php:56
+FROM xavren/docker-nginx-php:5.6
 MAINTAINER Xavier RENAUDIN <renaudin.xavier@gmail.com>
 
 ADD rootfs /

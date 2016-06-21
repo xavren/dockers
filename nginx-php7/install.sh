@@ -33,7 +33,6 @@ yum -y install nginx
 
 yum clean all
 
-mkdir -p /srv/{var,logs}
 chown nobody:nobody -R /srv
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"

@@ -10,10 +10,14 @@ COPY install.sh /tmp/
 RUN /tmp/install.sh && \
     rm /tmp/install.sh
 
+ENV TERM xterm
+
 RUN mkdir -p /srv/{var,logs} && \
     mkdir -p /srv/logs/{nginx,php,php-fpm} && \
+    mkdir -p /srv/www/web && \
+    echo "<?php phpinfo()" > /srv/www/web/index.php && \
     chown nobody:nobody -R /srv
 
 ADD rootfs /
-
+VOLUME ["/srv"]
 ENTRYPOINT ["/init"]

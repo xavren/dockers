@@ -27,9 +27,10 @@ yum -y install --enablerepo=remi-php70 php-fpm \
 	php-mysqlnd \
 	php-bcmath \
 	php-mongodb \
-	php-geoip
+	php-geoip \
+	php-pecl-zip
 
-yum -y install nginx
+yum -y install nginx git
 
 yum clean all
 

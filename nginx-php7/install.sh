@@ -40,6 +40,9 @@ yum -y install php-fpm \
 	php-pecl-zip
 
 yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb
+cp /opt/remi/php70/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
+cp /etc/opt/remi/php70/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
+
 yum -y install nginx git
 
 yum clean all

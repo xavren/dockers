@@ -1,4 +1,4 @@
-FROM centos:centos6
+FROM centos:6
 MAINTAINER Xavier RENAUDIN <renaudin.xavier@gmail.com>
 
 # Add s6 overlay v1.17.2.0 (https://github.com/just-containers/s6-overlay)

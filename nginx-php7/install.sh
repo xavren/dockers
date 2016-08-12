@@ -10,8 +10,18 @@ EOT
 yum install epel-release
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
+cat << 'EOT' > /etc/yum.repos.d/remi-php70.repo
+[remi-php70]
+name=Remi's PHP 7.0 RPM repository for Enterprise Linux 6 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/6/php70/$basearch/
+mirrorlist=http://rpms.remirepo.net/enterprise/6/php70/mirror
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+EOT
+
 yum -y update
-yum -y install --enablerepo=remi-php70 php-fpm \
+yum -y install php-fpm \
     php-cli \
 	php-dbg \
 	php-mbstring \
@@ -26,10 +36,10 @@ yum -y install --enablerepo=remi-php70 php-fpm \
 	php-pdo \
 	php-mysqlnd \
 	php-bcmath \
-	php-mongodb \
 	php-geoip \
 	php-pecl-zip
 
+yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb
 yum -y install nginx git
 
 yum clean all

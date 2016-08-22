@@ -39,8 +39,10 @@ yum -y install php-fpm \
 	php-geoip \
 	php-pecl-zip
 
-yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb
+yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb php70-php-pecl-xdebug
 cp /opt/remi/php70/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
+cp /opt/remi/php70/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/xdebug.so
+cp /etc/opt/remi/php70/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
 cp /etc/opt/remi/php70/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
 
 yum -y install nginx git

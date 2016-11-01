@@ -37,7 +37,8 @@ yum -y install php-fpm \
 	php-mysqlnd \
 	php-bcmath \
 	php-geoip \
-	php-pecl-zip
+	php-pecl-zip \
+	php-gd
 
 yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb php70-php-pecl-xdebug
 cp /opt/remi/php70/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so

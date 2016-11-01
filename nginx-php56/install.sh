@@ -28,7 +28,8 @@ yum -y install --enablerepo=remi-php56 php-fpm \
 	php-bcmath \
 	php-mongodb \
 	php-geoip \
-	php-pecl-zip
+	php-pecl-zip \
+	php-gd
 
 yum -y install nginx git
 

@@ -7,7 +7,7 @@ gpgcheck=0
 enabled=1
 EOT
 
-yum install epel-release
+yum install -y epel-release
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
 cat << 'EOT' > /etc/yum.repos.d/remi-php70.repo

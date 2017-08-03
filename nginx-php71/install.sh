@@ -10,11 +10,11 @@ EOT
 yum install -y epel-release
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
-cat << 'EOT' > /etc/yum.repos.d/remi-php70.repo
-[remi-php70]
-name=Remi's PHP 7.0 RPM repository for Enterprise Linux 6 - $basearch
-#baseurl=http://rpms.remirepo.net/enterprise/6/php70/$basearch/
-mirrorlist=http://rpms.remirepo.net/enterprise/6/php70/mirror
+cat << 'EOT' > /etc/yum.repos.d/remi-php71.repo
+[remi-php71]
+name=Remi's PHP 7.1 RPM repository for Enterprise Linux 6 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/6/php71/$basearch/
+mirrorlist=http://rpms.remirepo.net/enterprise/6/php71/mirror
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
@@ -40,11 +40,11 @@ yum -y install php-fpm \
 	php-pecl-zip \
 	php-gd
 
-yum -y --enablerepo=epel,remi,remi-php70 install php70-php-pecl-mongodb php70-php-pecl-xdebug
-cp /opt/remi/php70/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
-cp /opt/remi/php70/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/xdebug.so
+yum -y --enablerepo=epel,remi,remi-php71 install php71-php-pecl-mongodb php71-php-pecl-xdebug
+cp /opt/remi/php71/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
+cp /opt/remi/php71/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/xdebug.so
 #cp /etc/opt/remi/php70/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
-cp /etc/opt/remi/php70/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
+cp /etc/opt/remi/php71/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
 
 yum -y install nginx git
 
@@ -53,7 +53,7 @@ yum clean all
 chown nobody:nobody -R /srv
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
+
 mv composer.phar /usr/local/bin/composer

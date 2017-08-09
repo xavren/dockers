@@ -2,7 +2,7 @@ FROM centos:centos6
 MAINTAINER Xavier RENAUDIN <renaudin.xavier@gmail.com>
 
 # Add s6 overlay v1.18.1.5 (https://github.com/just-containers/s6-overlay)
-ADD https://github.com/just-containers/s6-overlay/releases/download/v1.18.1.5/s6-overlay-amd64.tar.gz /tmp/
+RUN curl -L -o /tmp/s6-overlay-amd64.tar.gz https://github.com/just-containers/s6-overlay/releases/download/v1.19.1.1/s6-overlay-amd64.tar.gz
 RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C /
 
 COPY install.sh /tmp/

@@ -1,4 +1,4 @@
-FROM xavren/php:71
+FROM xavren/php:7.1
 MAINTAINER Xavier RENAUDIN <renaudin.xavier@gmail.com>
 
 ADD rootfs /

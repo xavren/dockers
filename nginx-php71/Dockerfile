@@ -21,4 +21,5 @@ RUN mkdir -p /srv/{var,logs} && \
 ADD rootfs /
 VOLUME ["/srv"]
 WORKDIR /srv/www
+EXPOSE 80
 ENTRYPOINT ["/init"]

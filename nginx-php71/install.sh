@@ -46,6 +46,12 @@ cp /opt/remi/php71/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/x
 #cp /etc/opt/remi/php70/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
 cp /etc/opt/remi/php71/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
 
+
+version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
+    && curl -A "Docker" -o /tmp/blackfire-probe.tar.gz -D - -L -s https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$version \
+    && tar zxpf /tmp/blackfire-probe.tar.gz -C /tmp \
+    && mv /tmp/blackfire-*.so $(php -r "echo ini_get('extension_dir');")/blackfire.so 
+
 yum -y install nginx git
 
 yum clean all

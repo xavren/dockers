@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+[ -n "$PHP_MEMORY_LIMIT" ] && sed -i -e "s/memory_limit = 128M/memory_limit = ${PHP_MEMORY_LIMIT}/g" /etc/php.ini

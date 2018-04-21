@@ -3,7 +3,9 @@
 docker build $@ -t xavren/php:5.6 ./nginx-php56/
 docker build $@ -t xavren/php:7 ./nginx-php7/
 docker build $@ -t xavren/php:7.1 ./nginx-php71/
+docker build $@ -t xavren/php:7.2 ./nginx-php72/
 
 docker build $@ -t xavren/symfony:5.6 ./symfony-php56
 docker build $@ -t xavren/symfony:7 ./symfony-php7
 docker build $@ -t xavren/symfony:7.1 ./symfony-php71
+docker build $@ -t xavren/symfony4:7.2 ./symfony4-php72

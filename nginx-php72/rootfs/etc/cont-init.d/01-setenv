@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv sh
+
+if [ "$ENV" = "DEV" ]
+then
+    sed -i -e "s/APPLICATION_ENV \"prod\"/APPLICATION_ENV \"dev\"/g" /etc/nginx/nginx-default.conf
+    sed -i -e "s/expires max/expires 0/g" /etc/nginx/nginx-default.conf
+    sed -i -e "s/opcache.validate_timestamps=0/opcache.validate_timestamps=1/g" /etc/php.ini
+    sed -i '/open_file_cache/d' /etc/nginx/nginx-default.conf
+else
+    rm -f /etc/php.d/50-blackfire.ini
+fi

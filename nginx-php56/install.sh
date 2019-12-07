@@ -29,11 +29,12 @@ yum -y install --enablerepo=remi-php56 php-fpm \
 	php-mongodb \
 	php-geoip \
 	php-pecl-zip \
-	php-gd \
-	php-twig
+	php-gd
 
 yum -y install nginx git
 
+sed -i 's/^override_install_langs/#&/' /etc/yum.conf
+yum reinstall -y glibc-common
 yum clean all
 
 chown nobody:nobody -R /srv

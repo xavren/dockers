@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv sh
-
-if [ "$ENV" = "DEV" ]
-then
-    sed -i -e "s/APPLICATION_ENV \"prod\"/APPLICATION_ENV \"dev\"/g" /etc/nginx/nginx-default.conf
-    sed -i -e "s/opcache.validate_timestamps=0/opcache.validate_timestamps=1/g" /etc/php.ini
-fi

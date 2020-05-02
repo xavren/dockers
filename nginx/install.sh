@@ -10,11 +10,11 @@ EOT
 yum install -y epel-release
 yum -y install http://rpms.remirepo.net/enterprise/remi-release-6.rpm
 
-cat << 'EOT' > /etc/yum.repos.d/remi-php71.repo
-[remi-php71]
-name=Remi's PHP 7.1 RPM repository for Enterprise Linux 6 - $basearch
-#baseurl=http://rpms.remirepo.net/enterprise/6/php71/$basearch/
-mirrorlist=http://rpms.remirepo.net/enterprise/6/php71/mirror
+cat << 'EOT' > /etc/yum.repos.d/remi-php73.repo
+[remi-php73]
+name=Remi's PHP 7.3 RPM repository for Enterprise Linux 6 - $basearch
+#baseurl=http://rpms.remirepo.net/enterprise/6/php73/$basearch/
+mirrorlist=http://rpms.remirepo.net/enterprise/6/php73/mirror
 enabled=1
 gpgcheck=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi
@@ -40,11 +40,11 @@ yum -y install php-fpm \
 	php-pecl-zip \
 	php-gd
 
-yum -y --enablerepo=epel,remi,remi-php71 install php71-php-pecl-mongodb php71-php-pecl-xdebug
-cp /opt/remi/php71/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
-cp /opt/remi/php71/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/xdebug.so
+yum -y --enablerepo=epel,remi,remi-php73 install php73-php-pecl-mongodb php73-php-pecl-xdebug
+cp /opt/remi/php73/root/usr/lib64/php/modules/mongodb.so /usr/lib64/php/modules/mongodb.so
+cp /opt/remi/php73/root/usr/lib64/php/modules/xdebug.so /usr/lib64/php/modules/xdebug.so
 #cp /etc/opt/remi/php70/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
-cp /etc/opt/remi/php71/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
+cp /etc/opt/remi/php73/php.d/50-mongodb.ini /etc/php.d/50-mongodb.ini
 
 
 version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
